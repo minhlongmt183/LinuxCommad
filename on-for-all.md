@@ -23,5 +23,12 @@ echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sou
 sudo apt-get -y update
 sudo apt-get install -y sublime-text
 
+## go install
+wget -q -O - https://git.io/vQhTU |  bash -s -- --version 1.24.0 >/dev/null 2>&1
 
+# install ptdm
+https://github.com/projectdiscovery/pdtm
+
+# more swap on server
+fallocate -l 8G /swap && chmod 600 /swap && mkswap /swap && swapon /swap
 ```
