@@ -68,10 +68,15 @@ install_docker_compose() {
 }
 
 install_pentest_tools() {
-  print_message 4 "Installing penetration testing tools..."
-  for tool in "${PENTEST_TOOLS[@]}"; do
-    install_package "$tool"
-  done
+  print_message 4 "Checking for PDTM..."
+  
+  if command -v pdtm &>/dev/null; then
+    print_message 2 "PDTM is installed. Installing pentest tools: ${PENTEST_TOOLS[*]}"
+    pdtm -i "$(IFS=,; echo "${PENTEST_TOOLS[*]}")"
+  else
+    print_message 1 "PDTM is not installed. Please install it manually with:"
+    print_message 3 "go install -v github.com/projectdiscovery/pdtm/cmd/pdtm@latest"
+  fi
 }
 
 check_docker_status() {
@@ -89,7 +94,6 @@ check_docker_status() {
 install_go_tools() {
   print_message 4 "Installing Go tools..."
   wget -q -O - https://git.io/vQhTU | bash -s -- --version 1.24.0 >/dev/null 2>&1
-  go install -v github.com/projectdiscovery/pdtm/cmd/pdtm@latest
 }
 
 install_zsh() {
@@ -116,9 +120,9 @@ install_package "curl"
 install_docker
 install_docker_compose
 install_package "make"
-install_pentest_tools
 check_docker_status
 install_go_tools
+install_pentest_tools
 install_zsh
 
 print_message 2 "Setup completed successfully!"
