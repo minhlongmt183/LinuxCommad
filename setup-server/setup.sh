@@ -4,7 +4,7 @@
 DOCKER_COMPOSE_VERSION="v2.5.0"
 DOCKER_COMPOSE_BIN="/usr/local/bin/docker-compose"
 DOCKER_COMPOSE_URL="https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)"
-PENTEST_TOOLS=(nmap masscan gobuster amass subfinder nuclei)
+PENTEST_TOOLS=(subfinder nuclei httpx waybackurls gau ffuf) 
 
 # Functions
 print_usage() {
