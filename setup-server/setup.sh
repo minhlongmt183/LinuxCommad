@@ -111,8 +111,6 @@ done
 
 # Main Execution
 check_root
-print_message 1 "Before running this script, ensure Docker is running and .env is configured."
-print_message 2 "Changing PostgreSQL username & password in .env is highly recommended."
 
 install_package "curl"
 install_docker
