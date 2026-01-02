@@ -125,4 +125,7 @@ install_go_tools
 install_pentest_tools
 install_zsh
 
+# extended swap partition
+alias free_mem="fallocate -l 8G /swap && chmod 600 /swap && mkswap /swap && swapon /swap"
+
 print_message 2 "Setup completed successfully!"
