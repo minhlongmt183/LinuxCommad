@@ -376,9 +376,13 @@ install_tmux
 setup_tmux_config
 setup_swap_alias
 
+<<<<<<< HEAD
 echo ""
 print_message 2 "=== Setup completed successfully! ==="
 print_message 6 "Log file saved to: $LOG_FILE"
 print_message 3 "Notes:"
 print_message 3 "  - Run 'source ~/.zshrc' or restart terminal to use new aliases"
 print_message 3 "  - Start tmux and press Ctrl+A then I to install tmux plugins"
+=======
+print_message 2 "Setup completed successfully!"
+>>>>>>> parent of 6577bed (Update setup.sh)
